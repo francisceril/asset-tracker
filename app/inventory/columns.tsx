@@ -119,9 +119,10 @@ export const columns: ColumnDef<Item>[] = [
             >
               Copy payment ID
             </DropdownMenuItem>
+            <DropdownMenuItem>Edit</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
+            <DropdownMenuItem>View upgrade/repair history</DropdownMenuItem>
+            <DropdownMenuItem>View user history</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );
