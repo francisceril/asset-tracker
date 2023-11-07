@@ -228,25 +228,11 @@ export const columns: ColumnDef<Item>[] = [
             <DropdownMenuSeparator />
             <DropdownMenuItem>View upgrade/repair history</DropdownMenuItem>
             <DropdownMenuItem>View user history</DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem className="text-destructive">
+              Retire item
+            </DropdownMenuItem>
           </DropdownMenuContent>
-        </DropdownMenu>
-      );
-    },
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
-    id: "columns",
-    header: ({ column }) => {
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end"></DropdownMenuContent>
         </DropdownMenu>
       );
     },
