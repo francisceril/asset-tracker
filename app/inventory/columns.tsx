@@ -2,7 +2,18 @@
 
 import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import {
+  ArrowUpDown,
+  MoreHorizontal,
+  Laptop,
+  Computer,
+  Printer,
+  Smartphone,
+  Router,
+  Monitor,
+  Scan,
+  Phone,
+} from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,71 +26,144 @@ import {
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 export type Item = {
-  serialnumber: string;
-  devicetype: "laptop" | "desktop" | "monitor" | "keyboard" | "mouse" | "other";
-  purchasedate: string;
-  currentuser: string;
-  status: "available" | "assigned" | "out of order" | "retired";
+  serial_number: string;
+  device_type: string;
+  purchase_date: string;
+  assigned_to: string;
+  status: string;
   notes: string;
+  manufacturer: string;
+  model: string;
+  warranty_expiration_date: string;
+  location: string;
 };
 
 export const columns: ColumnDef<Item>[] = [
   {
-    accessorKey: "serialnumber",
+    accessorKey: "device_type",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
-          className="pl-0 text-left"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="w-full"
+        >
+          Type
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const item = row.original;
+
+      return (
+        <div className="flex items-center justify-center">
+          {item.device_type === "Laptop" ? (
+            <Laptop className="h-4 w-4" />
+          ) : item.device_type === "Desktop" ? (
+            <Computer className="h-4 w-4" />
+          ) : item.device_type === "Mobile Phone" ? (
+            <Smartphone className="h-4 w-4" />
+          ) : item.device_type === "Printer" ? (
+            <Printer className="h-4 w-4" />
+          ) : item.device_type === "Router" ? (
+            <Router className="h-4 w-4" />
+          ) : item.device_type === "Monitor" ? (
+            <Monitor className="h-4 w-4" />
+          ) : item.device_type === "Scanner" ? (
+            <Scan className="h-4 w-4" />
+          ) : item.device_type === "Phone" ? (
+            <Phone className="h-4 w-4" />
+          ) : (
+            ""
+          )}
+        </div>
+      );
+    },
+  },
+  {
+    accessorKey: "manufacturer",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="pl-0"
+        >
+          Manufacturer
+        </Button>
+      );
+    },
+  },
+  {
+    accessorKey: "model",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="pl-0"
+        >
+          Model
+        </Button>
+      );
+    },
+  },
+  {
+    accessorKey: "assigned_to",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="pl-0"
+        >
+          Assigned User
+        </Button>
+      );
+    },
+  },
+  {
+    accessorKey: "location",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="pl-0"
+        >
+          Location
+        </Button>
+      );
+    },
+  },
+  {
+    accessorKey: "purchase_date",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="pl-0"
+        >
+          Purchase Date
+        </Button>
+      );
+    },
+  },
+  {
+    accessorKey: "serial_number",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          className="pl-0"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Serial Number
-          <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
     },
-  },
-  {
-    accessorKey: "devicetype",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Device Type
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
-  },
-  {
-    accessorKey: "purchasedate",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Purchase Date
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
-  },
-  {
-    accessorKey: "currentuser",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Current User
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
+    enableHiding: false,
   },
   {
     accessorKey: "status",
@@ -88,10 +172,31 @@ export const columns: ColumnDef<Item>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="w-full"
         >
           Status
-          <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const item = row.original;
+
+      return (
+        <div className="flex items-center justify-center">
+          <span
+            className={`h-3 w-3 rounded-full mg-auto ${
+              item.status === "Available"
+                ? "bg-green-500"
+                : item.status === "Assigned"
+                ? "bg-yellow-500"
+                : item.status === "Out of Order"
+                ? "bg-red-500"
+                : item.status === "Retired"
+                ? "bg-gray-500"
+                : ""
+            }`}
+          ></span>
+        </div>
       );
     },
   },
@@ -115,7 +220,7 @@ export const columns: ColumnDef<Item>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(item.serialnumber)}
+              onClick={() => navigator.clipboard.writeText(item.serial_number)}
             >
               Copy payment ID
             </DropdownMenuItem>
