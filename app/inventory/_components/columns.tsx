@@ -46,7 +46,7 @@ export const columns: ColumnDef<Item>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="w-full"
+          className="px-0 hover:bg-none! w-full"
         >
           Type
         </Button>
@@ -87,7 +87,7 @@ export const columns: ColumnDef<Item>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="pl-0"
+          className="px-0 hover:bg-none!"
         >
           Manufacturer
         </Button>
@@ -101,7 +101,7 @@ export const columns: ColumnDef<Item>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="pl-0"
+          className="px-0 hover:bg-none!"
         >
           Model
         </Button>
@@ -115,7 +115,7 @@ export const columns: ColumnDef<Item>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="pl-0"
+          className="px-0 hover:bg-none!"
         >
           Assigned User
         </Button>
@@ -129,7 +129,7 @@ export const columns: ColumnDef<Item>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="pl-0"
+          className="px-0 hover:bg-none!"
         >
           Location
         </Button>
@@ -143,7 +143,7 @@ export const columns: ColumnDef<Item>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="pl-0"
+          className="px-0 hover:bg-none!"
         >
           Purchase Date
         </Button>
@@ -156,8 +156,8 @@ export const columns: ColumnDef<Item>[] = [
       return (
         <Button
           variant="ghost"
-          className="pl-0"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="px-0 hover:bg-none!"
         >
           Serial Number
         </Button>
@@ -172,7 +172,7 @@ export const columns: ColumnDef<Item>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="w-full"
+          className="px-0 hover:bg-none! w-full"
         >
           Status
         </Button>
