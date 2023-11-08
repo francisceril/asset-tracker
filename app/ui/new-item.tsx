@@ -18,7 +18,7 @@ export function AddDevice() {
     <Sheet>
       <SheetTrigger asChild>
         <Button>
-          <PlusCircleIcon className="h-4 w-4 mr-2" />
+          <PlusCircleIcon className="mr-2 h-4 w-4" />
           Add item
         </Button>
       </SheetTrigger>
@@ -26,7 +26,7 @@ export function AddDevice() {
         <SheetHeader>
           <SheetTitle>Add new device</SheetTitle>
           <SheetDescription>
-            Make changes to your profile here. Click save when you're done.
+            Make changes to your profile here. Click save when you&apos;re done.
           </SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 py-4">
