@@ -9,7 +9,7 @@ import { DataTableViewOptions } from "@/app/inventory/_components/data-table-vie
 
 import { priorities, statuses } from "./data";
 import { DataTableFacetedFilter } from "@/app/inventory/_components/data-table-faceted-filter";
-import { AddDevice } from "./new-device";
+import { AddDevice } from "@/app/ui/new-item";
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
