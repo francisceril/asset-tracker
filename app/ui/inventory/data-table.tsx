@@ -23,8 +23,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import { DataTableToolbar } from "@/app/inventory/_components/data-table-toolbar";
-import { DataTablePagination } from "@/app/inventory/_components/data-table-pagination";
+import { DataTableToolbar } from "@/app/ui/inventory/data-table-toolbar";
+import { DataTablePagination } from "@/app/ui/inventory/data-table-pagination";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];

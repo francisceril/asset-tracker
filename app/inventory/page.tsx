@@ -1,5 +1,5 @@
-import { Item, columns } from "./_components/columns";
-import { DataTable } from "./_components/data-table";
+import { Item, columns } from "../ui/inventory/columns";
+import { DataTable } from "../ui/inventory/data-table";
 import supabase from "@/lib/supabase";
 
 async function getData(): Promise<Item[]> {
