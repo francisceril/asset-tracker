@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
 import {
-  ArrowUpDown,
   MoreHorizontal,
   Laptop,
   Computer,
@@ -46,7 +45,7 @@ export const columns: ColumnDef<Item>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="px-0 hover:bg-none! w-full"
+          className="hover:bg-none! w-full px-0"
         >
           Type
         </Button>
@@ -87,7 +86,7 @@ export const columns: ColumnDef<Item>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="px-0 hover:bg-none!"
+          className="hover:bg-none! px-0"
         >
           Manufacturer
         </Button>
@@ -101,7 +100,7 @@ export const columns: ColumnDef<Item>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="px-0 hover:bg-none!"
+          className="hover:bg-none! px-0"
         >
           Model
         </Button>
@@ -115,7 +114,7 @@ export const columns: ColumnDef<Item>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="px-0 hover:bg-none!"
+          className="hover:bg-none! px-0"
         >
           Assigned User
         </Button>
@@ -129,7 +128,7 @@ export const columns: ColumnDef<Item>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="px-0 hover:bg-none!"
+          className="hover:bg-none! px-0"
         >
           Location
         </Button>
@@ -143,7 +142,7 @@ export const columns: ColumnDef<Item>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="px-0 hover:bg-none!"
+          className="hover:bg-none! px-0"
         >
           Purchase Date
         </Button>
@@ -157,7 +156,7 @@ export const columns: ColumnDef<Item>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="px-0 hover:bg-none!"
+          className="hover:bg-none! px-0"
         >
           Serial Number
         </Button>
@@ -172,7 +171,7 @@ export const columns: ColumnDef<Item>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="px-0 hover:bg-none! w-full"
+          className="hover:bg-none! w-full px-0"
         >
           Status
         </Button>
@@ -184,7 +183,7 @@ export const columns: ColumnDef<Item>[] = [
       return (
         <div className="flex items-center justify-center">
           <span
-            className={`h-3 w-3 rounded-full mg-auto ${
+            className={`mg-auto h-3 w-3 rounded-full ${
               item.status === "Available"
                 ? "bg-green-500"
                 : item.status === "Assigned"
