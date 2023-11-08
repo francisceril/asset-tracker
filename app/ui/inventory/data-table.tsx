@@ -21,7 +21,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@/app/ui/table";
 
 import { DataTableToolbar } from "@/app/ui/inventory/data-table-toolbar";
 import { DataTablePagination } from "@/app/ui/inventory/data-table-pagination";

@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ModeToggle } from "@/components/theme-toggle";
-import { Separator } from "@/components/ui/separator";
-import UserAvatar from "@/components/avatar";
+import { ModeToggle } from "@/app/ui/theme-toggle";
+import { Separator } from "@/app/ui/separator";
 
 const Header = () => {
   return (
@@ -20,7 +19,6 @@ const Header = () => {
 
         <div className="flex items-center space-x-4">
           <ModeToggle />
-          <UserAvatar />
         </div>
       </div>
       <Separator />

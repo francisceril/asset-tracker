@@ -3,13 +3,13 @@
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { Table } from "@tanstack/react-table";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/app/ui/button";
+import { Input } from "@/app/ui/input";
 import { DataTableViewOptions } from "@/app/ui/inventory/data-table-view-options";
 
 import { priorities, statuses } from "./data";
 import { DataTableFacetedFilter } from "@/app/ui/inventory/data-table-faceted-filter";
-import { AddDevice } from "@/app/ui/new-item";
+import Form from "@/app/ui/inventory/create-form";
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
@@ -23,7 +23,7 @@ export function DataTableToolbar<TData>({
   return (
     <>
       <div>
-        <AddDevice />
+        <Form />
       </div>
       <div className="flex items-center justify-between">
         <div className="flex flex-1 items-center space-x-2">
