@@ -1,6 +1,5 @@
-import { Item, columns } from "../ui/inventory/columns";
-import { DataTable } from "../ui/inventory/data-table";
-import supabase from "@/lib/supabase";
+import { Item, columns } from "@/app/ui/inventory/columns";
+import { DataTable } from "@/app/ui/inventory/table";
 
 async function getData(): Promise<Item[]> {
   const { data, error } = await supabase.rpc("fetch_devices");
