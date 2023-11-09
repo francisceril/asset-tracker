@@ -1,18 +1,14 @@
+import { Input } from "./input";
+import { Button } from "./button";
+
 export default function LoginForm() {
   return (
-    <div>
-      <h1>Log In</h1>
-      <form>
-        <label>
-          Username:
-          <input type="text" name="username" />
-        </label>
-        <label>
-          Password:
-          <input type="password" name="password" />
-        </label>
-        <input type="submit" value="Log In" />
-      </form>
+    <div className="p-8">
+      <div className="space-y-4">
+        <Input aria-label="Email" placeholder="Email" type="email" />
+        <Input aria-label="Password" placeholder="Password" type="password" />
+        <Button className="w-full">Sign in</Button>
+      </div>
     </div>
   );
 }

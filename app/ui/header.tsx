@@ -1,11 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ModeToggle } from "@/app/ui/theme-toggle";
-import { Separator } from "@/app/ui/separator";
 
 const Header = () => {
   return (
-    <header>
+    <header className="borber-border border-b">
       <div className="container flex h-14 items-center justify-between">
         <Link href="/">
           <Image
@@ -21,7 +20,6 @@ const Header = () => {
           <ModeToggle />
         </div>
       </div>
-      <Separator />
     </header>
   );
 };
