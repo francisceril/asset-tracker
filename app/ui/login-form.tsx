@@ -1,14 +1,33 @@
-import { Input } from "./input";
+"use client";
+
 import { Button } from "./button";
+import { createBrowserClient } from "@supabase/ssr";
+import { MouseEvent } from "react";
 
 export default function LoginForm() {
+  const handleLogin = async (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    const supabase = createBrowserClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    );
+
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "azure",
+      options: {
+        scopes: "email",
+      },
+    });
+
+    if (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <div className="p-8">
-      <div className="space-y-4">
-        <Input aria-label="Email" placeholder="Email" type="email" />
-        <Input aria-label="Password" placeholder="Password" type="password" />
-        <Button className="w-full">Sign in</Button>
-      </div>
-    </div>
+    <Button className="mt-6 w-full" onClick={handleLogin}>
+      Sign in
+    </Button>
   );
 }
