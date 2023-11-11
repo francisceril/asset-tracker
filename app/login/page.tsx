@@ -1,6 +1,6 @@
-import LoginForm from "@/app/ui/login-form";
+import LoginForm from "@/app/ui/login/login-form";
 
-export default function LoginPage() {
+export default async function LoginPage() {
   return (
     <main className="bg-background dark:bg-background grid min-h-screen place-items-center">
       <div className="w-full max-w-md">

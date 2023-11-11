@@ -13,6 +13,7 @@ const Header = () => {
             width={200}
             height={50}
             className="-ml-3"
+            priority
           />
         </Link>
 
