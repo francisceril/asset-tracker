@@ -7,7 +7,7 @@ import { Button } from "@/app/ui/button";
 import { Input } from "@/app/ui/input";
 import { DataTableViewOptions } from "@/app/ui/inventory/data-table-view-options";
 
-import { priorities, statuses } from "./data";
+import { statuses } from "./data";
 import { DataTableFacetedFilter } from "@/app/ui/inventory/data-table-faceted-filter";
 import Form from "@/app/ui/inventory/create-form";
 
@@ -45,13 +45,6 @@ export function DataTableToolbar<TData>({
               column={table.getColumn("status")}
               title="Status"
               options={statuses}
-            />
-          )}
-          {table.getColumn("priority") && (
-            <DataTableFacetedFilter
-              column={table.getColumn("priority")}
-              title="Priority"
-              options={priorities}
             />
           )}
           {isFiltered && (

@@ -28,12 +28,11 @@ export type Item = {
   serial_number: string;
   device_type: string;
   purchase_date: string;
-  assigned_to: string;
+  assigned_user: string;
   status: string;
   notes: string;
   manufacturer: string;
   model: string;
-  warranty_expiration_date: string;
   location: string;
 };
 
@@ -108,7 +107,7 @@ export const columns: ColumnDef<Item>[] = [
     },
   },
   {
-    accessorKey: "assigned_to",
+    accessorKey: "assigned_user",
     header: ({ column }) => {
       return (
         <Button
@@ -184,13 +183,13 @@ export const columns: ColumnDef<Item>[] = [
         <div className="flex items-center justify-center">
           <span
             className={`mg-auto h-3 w-3 rounded-full ${
-              item.status === "Available"
+              item.status === "available"
                 ? "bg-green-500"
-                : item.status === "Assigned"
+                : item.status === "assigned"
                 ? "bg-yellow-500"
-                : item.status === "Out of Order"
+                : item.status === "out of order"
                 ? "bg-red-500"
-                : item.status === "Retired"
+                : item.status === "decommisioned"
                 ? "bg-gray-500"
                 : ""
             }`}
