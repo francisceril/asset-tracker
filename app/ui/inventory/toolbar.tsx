@@ -9,7 +9,7 @@ import { DataTableViewOptions } from "@/app/ui/inventory/data-table-view-options
 
 import { statuses } from "./data";
 import { DataTableFacetedFilter } from "@/app/ui/inventory/data-table-faceted-filter";
-import Form from "@/app/ui/inventory/create-form";
+import AddButton from "./add-new-button";
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
@@ -21,11 +21,9 @@ export function DataTableToolbar<TData>({
   const isFiltered = table.getState().columnFilters.length > 0;
 
   return (
-    <>
-      <div>
-        <Form />
-      </div>
-      <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between">
+      <AddButton />
+      <div className="flex space-x-2">
         <div className="flex flex-1 items-center space-x-2">
           <Input
             placeholder="Filter serial number..."
@@ -60,6 +58,6 @@ export function DataTableToolbar<TData>({
         </div>
         <DataTableViewOptions table={table} />
       </div>
-    </>
+    </div>
   );
 }

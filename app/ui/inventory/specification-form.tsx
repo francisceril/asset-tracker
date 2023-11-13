@@ -1,31 +1,11 @@
-"use client";
-
-import * as z from "zod";
-
+import { FormField, FormItem, FormLabel, FormControl } from "@/app/ui/form";
 import { Input } from "@/app/ui/input";
-import { Button } from "@/app/ui/button";
-
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-} from "@/app/ui/form";
-
-const schema = z.object({
-  processor: z.string(),
-  memory: z.string(),
-  storage: z.string(),
-  display: z.string(),
-  color: z.string(),
-});
 
 export default function Specification() {
   return (
-    <div className="w-full border-t py-8">
-      <h3 className="mb-6">Specification</h3>
-      <div className="grid grid-cols-2 gap-4">
+    <div className="py-16">
+      <h3 className="mb-8">Specification</h3>
+      <div className="grid grid-cols-2 gap-8">
         <FormField
           name="processor"
           render={({ field }) => (

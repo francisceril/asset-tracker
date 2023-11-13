@@ -1,7 +1,7 @@
 import "@/app/ui/globals.css";
-import { GeistSans } from "geist/font";
-import type { Metadata } from "next";
 import { ThemeProvider } from "@/app/ui/theme-provider";
+import type { Metadata } from "next";
+import { inter } from "../ui/fonts";
 
 import Header from "@/app/ui/header";
 
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${GeistSans.className} antialiased`}>
+      <body className={`${inter.className} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

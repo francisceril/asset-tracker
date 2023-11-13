@@ -1,24 +1,14 @@
 "use client";
 
+import { cn } from "@/app/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { createBrowserClient } from "@supabase/ssr";
+import { format } from "date-fns";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { format } from "date-fns";
-import { cn } from "@/app/lib/utils";
-import { createBrowserClient } from "@supabase/ssr";
 
-import { CalendarIcon, CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
-import { Input } from "@/app/ui/input";
 import { Button } from "@/app/ui/button";
 import { Calendar } from "@/app/ui/calendar";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/app/ui/select";
-import { Popover, PopoverContent, PopoverTrigger } from "@/app/ui/popover";
 import {
   Form,
   FormControl,
@@ -26,13 +16,16 @@ import {
   FormItem,
   FormLabel,
 } from "@/app/ui/form";
+import { Input } from "@/app/ui/input";
+import { Popover, PopoverContent, PopoverTrigger } from "@/app/ui/popover";
 import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandItem,
-  CommandInput,
-} from "@/app/ui/command";
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/app/ui/select";
+import { CalendarIcon } from "@radix-ui/react-icons";
 
 const schema = z.object({
   serial_number: z.string(),
@@ -54,11 +47,6 @@ const supabase = createBrowserClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
 );
-
-const users = [
-  { label: "Francis", value: "francis@alhammadmedical.com" },
-  { label: "Mohammed", value: "m.hammed@alhammadmedical.com" },
-] as const;
 
 async function onSubmit(form: z.infer<typeof schema>) {
   const { data, error } = await supabase
@@ -117,7 +105,7 @@ export default function CreateForm() {
   });
 
   return (
-    <div className="max-w-[50vw]">
+    <div className="relative">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <h3 className="mb-8">Properties</h3>
@@ -287,145 +275,26 @@ export default function CreateForm() {
           </div>
 
           {/* display specification if device type is laptop, desktop or server */}
-          {(form.watch("device_type") === "laptop" ||
+          {/* {(form.watch("device_type") === "laptop" ||
             form.watch("device_type") === "desktop" ||
-            form.watch("device_type") === "server") && (
-            <div className="py-16">
-              <h3 className="mb-8">Specification</h3>
-              <div className="grid grid-cols-2 gap-8">
-                <FormField
-                  name="processor"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Processor</FormLabel>
-                      <FormControl>
-                        <Input {...field} />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
+            form.watch("device_type") === "server") && <Specification />} */}
 
-                <FormField
-                  name="memory"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Memory</FormLabel>
-                      <FormControl>
-                        <Input {...field} />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  name="storage"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Storage</FormLabel>
-                      <FormControl>
-                        <Input {...field} />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  name="display"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Display</FormLabel>
-                      <FormControl>
-                        <Input {...field} />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  name="color"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Color</FormLabel>
-                      <FormControl>
-                        <Input {...field} />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-              </div>
-            </div>
-          )}
-
-          <FormField
+          {/* <FormField
             control={form.control}
             name="assigned_to"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Assign to</FormLabel>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <FormControl>
-                      <Button
-                        variant={"outline"}
-                        role="combobox"
-                        className={cn(
-                          "w-[200px] justify-between",
-                          !field.value && "text-muted-foreground",
-                        )}
-                      >
-                        {field.value
-                          ? users.find(
-                              (assigned_to) =>
-                                assigned_to.value === field.value,
-                            )?.label
-                          : "Select user"}
-                        <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                      </Button>
-                    </FormControl>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-[200px] p-0">
-                    <Command>
-                      <CommandInput
-                        placeholder="Search users"
-                        className="h-9"
-                      />
-                      <CommandEmpty>No user found.</CommandEmpty>
-                      <CommandGroup>
-                        {users.map((user) => (
-                          <CommandItem
-                            value={user.value}
-                            key={user.value}
-                            onSelect={() =>
-                              form.setValue("assigned_to", user.value)
-                            }
-                            className={cn(
-                              "flex items-center",
-                              user.value === field.value && "bg-gray-100",
-                            )}
-                          >
-                            {user.label}
-                            <CheckIcon
-                              className={cn(
-                                "ml-auto h-4 w-4",
-                                user.value === field.value
-                                  ? "opacity-100"
-                                  : "opacity-0",
-                              )}
-                            />
-                          </CommandItem>
-                        ))}
-                      </CommandGroup>
-                    </Command>
-                  </PopoverContent>
-                </Popover>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
               </FormItem>
             )}
-          />
+          /> */}
 
-          <div className="space-x-2">
-            <Button type="submit">Save</Button>
-            <Button variant={"secondary"}>Cancel</Button>
-          </div>
+          <Button className="" type="submit">
+            Save
+          </Button>
         </form>
       </Form>
     </div>

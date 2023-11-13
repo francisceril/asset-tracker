@@ -4,9 +4,9 @@ import { ModeToggle } from "@/app/ui/theme-toggle";
 
 const Header = () => {
   return (
-    <header className="borber-border border-b">
+    <header className="borber-border bg-background fixed inset-x-0 z-50 border-b">
       <div className="container flex h-14 items-center justify-between">
-        <Link href="/">
+        <Link href="/" className="flex items-center gap-x-2">
           <Image
             src="/images/logo.png"
             alt="logo"
@@ -15,6 +15,7 @@ const Header = () => {
             className="-ml-3"
             priority
           />
+          Asset Inventory
         </Link>
 
         <div className="flex items-center space-x-4">

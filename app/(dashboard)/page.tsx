@@ -1,9 +1,11 @@
 import { createBrowserClient } from "@supabase/ssr";
 import { Item, columns } from "@/app/ui/inventory/columns";
 import { DataTable } from "@/app/ui/inventory/table";
-import CreateForm from "@/app/ui/inventory/create-form";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 
-async function getData(): Promise<Item[]> {
+async function fetchData(): Promise<Item[]> {
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -19,14 +21,21 @@ async function getData(): Promise<Item[]> {
 }
 
 export default async function Page() {
-  const data = await getData();
+  const data = await fetchData();
+  const supabase = createServerComponentClient({ cookies });
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  if (!session) {
+    redirect("/login");
+  } else {
+    console.log(session);
+  }
 
   return (
-    <div className="container mx-auto py-10">
-      <h1 className="mb-10 text-2xl font-medium">Asset Inventory</h1>
+    <div className="container mx-auto pt-28">
       <DataTable columns={columns} data={data} />
-
-      <CreateForm />
     </div>
   );
 }
