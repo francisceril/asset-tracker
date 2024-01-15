@@ -8,7 +8,7 @@ export default function Devices() {
       <Header title="Devices">
         <Button>
           <PlusIcon className="mr-2 size-4" />
-          New Device
+          New device
         </Button>
       </Header>
     </div>

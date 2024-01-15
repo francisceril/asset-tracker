@@ -1,15 +1,11 @@
 import Link from "next/link";
-import {
-  DashboardIcon,
-  LaptopIcon,
-  CalendarIcon,
-  SunIcon,
-} from "@radix-ui/react-icons";
+import { DashboardIcon, LaptopIcon, CalendarIcon } from "@radix-ui/react-icons";
+import { ThemeToggle } from "./theme-toggle";
 
 const links = [
   { title: "Dashboard", path: "/dashboard", icon: DashboardIcon },
   { title: "Devices", path: "/dashboard/devices", icon: LaptopIcon },
-  { title: "Tickets", path: "/dashboard/tickes", icon: LaptopIcon },
+  { title: "Tickets", path: "/dashboard/tickets", icon: LaptopIcon },
   {
     title: "Subscriptions",
     path: "/dashboard/subscriptions",
@@ -19,7 +15,7 @@ const links = [
 
 export function Sidebar() {
   return (
-    <aside className="bg-background fixed z-50 h-screen border-r border-dashed">
+    <aside className="bg-background border-border/40 fixed z-50 h-screen border-r">
       <div className="flex h-full w-14 flex-col items-center px-2 py-4">
         <div className="text-2xl">🎉</div>
 
@@ -37,7 +33,7 @@ export function Sidebar() {
         </nav>
 
         <div className="mt-auto">
-          <SunIcon className="size-5" />
+          <ThemeToggle />
         </div>
       </div>
     </aside>
