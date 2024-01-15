@@ -1,3 +1,9 @@
+import { TopNav } from "@/components/top-nav";
+
 export default function Dashboard() {
-  return <div>Dashboard</div>;
+  return (
+    <div>
+      <TopNav title="Dashboard" />
+    </div>
+  );
 }
