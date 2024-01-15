@@ -1,4 +1,4 @@
-export function TopNav({
+export function Header({
   children,
   title,
 }: {

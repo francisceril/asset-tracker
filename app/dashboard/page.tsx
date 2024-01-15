@@ -1,9 +1,9 @@
-import { TopNav } from "@/components/top-nav";
+import { Header } from "@/components/header";
 
 export default function Dashboard() {
   return (
     <div>
-      <TopNav title="Dashboard" />
+      <Header title="Dashboard" />
     </div>
   );
 }
