@@ -1,16 +1,22 @@
 import { Header } from "@/components/header";
-import { Button } from "@/components/ui/button";
-import { PlusIcon } from "@radix-ui/react-icons";
+import { NewDeviceSheet } from "./_components/new-device-sheet";
+import { DataTable } from "./_components/table";
+import { columns } from "./_components/columns";
+import { createClient } from "@/lib/supabase/server";
+import { cookies } from "next/headers";
 
-export default function Devices() {
+export default async function Devices() {
+  const supabase = createClient(cookies());
+  const { data } = await supabase
+    .from("devices")
+    .select()
+    .order("id", { ascending: false });
+
   return (
-    <div>
-      <Header title="Devices">
-        <Button>
-          <PlusIcon className="mr-2 size-4" />
-          New device
-        </Button>
-      </Header>
-    </div>
+    <>
+      <div>
+        <DataTable columns={columns} data={data} />
+      </div>
+    </>
   );
 }
