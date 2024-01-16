@@ -5,11 +5,13 @@ import { Table } from "@tanstack/react-table";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { DataTableViewOptions } from "./view-options";
+import { DataTableViewOptions } from "@/components/table-view-options";
 
 import { statuses, deviceTypes } from "../_data/data";
-import { DataTableFacetedFilter } from "./faceted-filter";
+import { DataTableFacetedFilter } from "@/components/table-faceted-filter";
+import { Download } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { AddDeviceSheet } from "./add-device-sheet";
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
@@ -58,8 +60,15 @@ export function DataTableToolbar<TData>({
           </Button>
         )}
         <DataTableViewOptions table={table} />
+        <Separator orientation="vertical" className="h-6" />
+
+        <Button variant="outline" size="sm">
+          <Download className="mr-2 size-4" />
+          Export
+        </Button>
       </div>
-      <DataTableViewOptions table={table} />
+
+      <AddDeviceSheet />
     </div>
   );
 }

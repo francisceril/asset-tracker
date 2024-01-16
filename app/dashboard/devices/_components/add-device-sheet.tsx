@@ -10,9 +10,9 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
-import { NewDeviceForm } from "./new-device-form";
+import { NewDeviceForm } from "./add-device-form";
 
-export function NewDeviceSheet() {
+export function AddDeviceSheet() {
   return (
     <Sheet>
       <SheetTrigger asChild>

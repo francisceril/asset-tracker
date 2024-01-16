@@ -6,7 +6,6 @@ import {
   Ticket,
   CalendarCheck,
 } from "@phosphor-icons/react/dist/ssr";
-import { ThemeToggle } from "@/components/theme-toggle";
 import {
   Tooltip,
   TooltipContent,
@@ -14,7 +13,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { buttonVariants } from "@/components/ui/button";
-import { UserNav } from "@/components/user-nav";
+import { Logo } from "./logo";
 
 const links = [
   { title: "Dashboard", path: "/dashboard", icon: HouseLine },
@@ -29,9 +28,11 @@ const links = [
 
 export function Sidebar() {
   return (
-    <aside className="bg-accent/20 border-border/40 fixed z-50 h-screen border-r">
-      <div className="flex h-full w-14 flex-col items-center px-2 py-4">
-        <div className="text-2xl">🎉</div>
+    <aside className="bg-background hide-scrollbar hidden w-14 overflow-y-auto border-r border-dashed md:block">
+      <div className="flex h-screen flex-col items-center px-2 py-4">
+        <div className="size-10 text-2xl">
+          <Logo />
+        </div>
 
         <nav className="mt-8 flex flex-col items-center gap-2">
           <TooltipProvider delayDuration={0}>
@@ -62,11 +63,6 @@ export function Sidebar() {
             ))}
           </TooltipProvider>
         </nav>
-
-        <div className="mt-auto flex flex-col items-center gap-y-4">
-          <ThemeToggle />
-          <UserNav />
-        </div>
       </div>
     </aside>
   );

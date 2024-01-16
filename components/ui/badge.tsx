@@ -16,13 +16,14 @@ const badgeVariants = cva(
           "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
         outline: "text-foreground",
         available:
-          "forced-colors:outline bg-lime-500/15 text-green-700 dark:bg-green-500/10 dark:text-green-400",
+          "bg-green-500/15 text-green-700 dark:bg-green-500/10 dark:text-green-400",
         assigned:
           "bg-yellow-400/20 text-yellow-700 dark:bg-yellow-400/10 dark:text-yellow-300",
-        under_repair: "",
+        under_repair: "bg-purple-500/15 text-purple-700 dark:text-purple-400",
         out_of_service:
           "bg-rose-400/15 text-rose-700 dark:bg-rose-400/10 dark:text-rose-400",
-        retired: "",
+        retired:
+          "bg-zinc-600/10 text-zinc-700 dark:bg-white/5 dark:text-zinc-400",
       },
     },
     defaultVariants: {

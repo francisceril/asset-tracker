@@ -7,7 +7,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 import { statuses, deviceTypes } from "../_data/data";
 import { Device } from "../_data/schema";
-import { DataTableColumnHeader } from "./column-header";
+import { DataTableColumnHeader } from "@/components/table-column-header";
 import { DataTableRowActions } from "./row-actions";
 
 export const columns: ColumnDef<Device>[] = [

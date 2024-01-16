@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/providers";
 import { cn } from "@/lib/utils";
@@ -16,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn("min-h-screen antialiased", GeistMono.className)}>
+      <body
+        className={cn("overflow-y-hidden antialiased", GeistMono.className)}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

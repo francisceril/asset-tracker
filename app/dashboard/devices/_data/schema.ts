@@ -1,15 +1,14 @@
 import { z } from "zod";
 
 export const deviceSchema = z.object({
-  id: z.string(),
-  serial_number: z.string(),
-  type: z.string(),
-  manufacturer: z.string(),
-  model: z.string(),
-  status: z.string(),
-  tag: z.string(),
-  purchase_date: z.date(),
-  notes: z.string(),
+  serial_number: z.string().optional(),
+  type: z.string().optional(),
+  manufacturer: z.string().optional(),
+  model: z.string().optional(),
+  status: z.string().optional(),
+  // tag: z.string().optional(),
+  // purchase_date: z.string().optional(),
+  // notes: z.string().optional(),
 });
 
 export type Device = z.infer<typeof deviceSchema>;

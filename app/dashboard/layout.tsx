@@ -1,4 +1,7 @@
+import { SelectOrganization } from "@/components/select-org";
 import { Sidebar } from "@/components/sidebar";
+import { UserNav } from "@/components/user-nav";
+import { Bell } from "@phosphor-icons/react/dist/ssr";
 
 export default function DashboardLayout({
   children,
@@ -6,9 +9,20 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen">
-      <Sidebar />
-      <main className="ml-14 flex-1 p-8">{children}</main>
+    <div className="h-screen max-h-screen">
+      <div className="flex h-full">
+        <Sidebar />
+        <main className="scrollbar-none flex w-full flex-1 flex-col overflow-x-hidden">
+          <header className="bg-background flex h-12 max-h-12 items-center justify-between border-b border-dashed px-8 py-2">
+            <SelectOrganization />
+            <div className="ml-auto flex items-center gap-x-2">
+              <Bell size={20} weight="regular" />
+              <UserNav />
+            </div>
+          </header>
+          <main className="flex-1 overflow-y-auto p-12">{children}</main>
+        </main>
+      </div>
     </div>
   );
 }

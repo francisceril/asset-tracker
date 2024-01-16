@@ -1,5 +1,3 @@
-import { Header } from "@/components/header";
-import { NewDeviceSheet } from "./_components/new-device-sheet";
 import { DataTable } from "./_components/table";
 import { columns } from "./_components/columns";
 import { createClient } from "@/lib/supabase/server";
@@ -13,10 +11,11 @@ export default async function Devices() {
     .order("id", { ascending: false });
 
   return (
-    <>
-      <div>
-        <DataTable columns={columns} data={data} />
+    <div>
+      <div className="mb-6">
+        <h1 className="text-3xl">Devices</h1>
       </div>
-    </>
+      <DataTable columns={columns} data={data} />
+    </div>
   );
 }
