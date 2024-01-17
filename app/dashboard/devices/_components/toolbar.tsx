@@ -67,8 +67,6 @@ export function DataTableToolbar<TData>({
           Export
         </Button>
       </div>
-
-      <AddDeviceSheet />
     </div>
   );
 }

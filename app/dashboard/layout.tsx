@@ -1,6 +1,6 @@
 import { SelectOrganization } from "@/components/select-org";
 import { Sidebar } from "@/components/sidebar";
-import { UserNav } from "@/components/user-nav";
+import { UserAccountNav } from "@/components/user-nav";
 import { Bell } from "@phosphor-icons/react/dist/ssr";
 
 export default function DashboardLayout({
@@ -17,7 +17,7 @@ export default function DashboardLayout({
             <SelectOrganization />
             <div className="ml-auto flex items-center gap-x-2">
               <Bell size={20} weight="regular" />
-              <UserNav />
+              <UserAccountNav />
             </div>
           </header>
           <main className="flex-1 overflow-y-auto p-12">{children}</main>

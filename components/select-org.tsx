@@ -19,6 +19,7 @@ const organizations = [{ value: "alhammadmedical" }, { value: "personal" }];
 export function SelectOrganization() {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
+
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
@@ -62,7 +63,7 @@ export function SelectOrganization() {
           <CommandSeparator />
         </Command>
         <div className="p-1">
-          <Button variant="ghost" size="sm" className="w-full">
+          <Button variant="ghost" size="sm" className="w-full justify-start">
             <Plus className="mr-2 size-4" />
             New organization
           </Button>

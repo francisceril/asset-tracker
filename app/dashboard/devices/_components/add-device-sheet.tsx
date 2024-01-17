@@ -12,11 +12,13 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { NewDeviceForm } from "./add-device-form";
 
-export function AddDeviceSheet() {
+interface AddDeviceSheetProps extends React.HTMLAttributes<HTMLButtonElement> {}
+
+export function AddDeviceSheet({ ...props }: AddDeviceSheetProps) {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button className="rounded-lg">
+        <Button className="rounded-lg" {...props}>
           <Plus className="mr-2 size-4" />
           New device
         </Button>
