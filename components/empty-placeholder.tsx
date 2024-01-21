@@ -30,7 +30,7 @@ interface EmptyPlaceholderIconProps
   name: keyof typeof Icons;
 }
 
-EmptyPlaceholder.Icon = function EmptyPlaceHolderIcon({
+EmptyPlaceholder.Icon = function EmptyPlaceholderIcon({
   name,
   className,
   ...props
